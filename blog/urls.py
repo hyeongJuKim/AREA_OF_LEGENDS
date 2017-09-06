@@ -21,5 +21,8 @@ urlpatterns = [
 
     url(r'^$', views.main, name='main'),
 
+    url(r'^about$', views.about, name='about'),
+
+    url(r'^post_detail$', views.post_detail, name='post_detail'),
 
 ]
