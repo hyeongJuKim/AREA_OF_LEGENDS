@@ -2,11 +2,72 @@
 
 {% block content %}
 
-<div class="list-module">
-    <h1><b>타이틀</b></h1>
+<div class="col-lg-12">
+
+    <div class="list-module">
+        <h1><b>Members</b></h1>
+    </div>
+    <br>
+
+
+    <div class="member_div">
+        <div class="row bottom_margin">
+            <div class="col-lg-4">
+                <div class="row bottom_margin">
+                    <img class= "member_profile_img" src="/static/imgs/members/gs.png"/>
+                    <div class="member_name">근수</div>
+                    <div class="member_area">휴먼.<br>
+                        천동.<br>
+                        낚시를 좋아한다.
+                    </div>
+                </div>
+                <div class="row">
+                    <div><strong>스킬</strong></div>
+                    <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluQ.png">
+                    <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluW.png">
+                    <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluE.png">
+                    <img class= "member_skill_img" alt="단결된 의지" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/ShenR.png">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="gsChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("gsChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var gsChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "이동속도", "새벽 저항력"],
+                        datasets: [{
+                          label: '근수',
+                          backgroundColor: "rgba(200,255,200,0.5)",
+                          borderColor: "rgba(153,255,51,1)",
+                          data: [5, 5, 5, 10, 1,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+{#        <div class="row bottom_margin col-lg-12">#}
+{#            <div><strong>스킬</strong></div>#}
+{#            <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluQ.png">#}
+{#            <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluW.png">#}
+{#            <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluE.png">#}
+{#            <img class= "member_skill_img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/LuluR.png">#}
+{#        </div>#}
+        <div class="row bottom_margin col-lg-12">
+            <strong>스킨</strong>
+        </div>
+
+    </div>
+
+
 </div>
-<br>
-
-contents
-
 {% endblock %}

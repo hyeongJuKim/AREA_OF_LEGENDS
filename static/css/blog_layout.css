@@ -1,0 +1,121 @@
+/* font */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+
+/* style */
+.blog_title {
+	font-size: 30px;
+	color: #000;
+	/*position: relative;*/
+    display: block;
+    padding: 3px 15px;
+}
+
+body {
+	font-size: 16px;
+	padding-top: 70px;
+}
+
+h1 {
+	text-align: center;
+}
+
+h1 a {
+	font-size: 30px;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+a:hover {
+	/*background:#fff4cc;*/
+    color: #000;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+::selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+::-moz-selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+::-webkit-selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+
+.about_intro {
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	padding-top: 23px;
+	padding-bottom: 27px;
+}
+
+.navbar-brand {
+	font-size: 19px;
+	font-weight: bold;
+}
+
+.list-module {
+	border-bottom: 1px solid #dddddd;
+	padding-top: 23px;
+	padding-bottom: 27px;
+}
+
+.created_date {
+    color: #C6C6C6;
+}
+
+.readMoreDIV {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.readMore {
+	border-bottom: 1px solid black;
+}
+
+footer {
+    margin: 50px 0;
+    text-align: center;
+    color: gray;
+}
+
+
+.member_div {}
+.member_title {
+	font-size: 20px;
+	font-weight: bold;
+}
+.member_subtitle {}
+.member_member_stat {
+	width: 100vh;
+	height: 100vh;
+}
+.member_skill_img {
+	width: 64px;
+	height: 64px;
+	border:1px solid;
+}

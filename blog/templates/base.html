@@ -20,9 +20,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+
+    <!-- Tippy js -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js/dist/tippy.css">
+    <script src="https://unpkg.com/tippy.js/dist/tippy.min.js"></script>
+
+
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'css/blog_layout.css' %}">
 
+	<link rel="stylesheet" href="/static/css/blog_layout.css">
+
+	<link rel="stylesheet" href="static/css/blog_layout.css">
 
     <title>blog</title>
 </head>
@@ -44,8 +54,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li> <a href="/about">누구?</a> </li>
-                    <li> <a href="post_detail">시온팸</a> </li>
+                    <li> <a href="about">시온팸?</a> </li>
+                    <li> <a href="post_detail">Members</a> </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -56,8 +66,9 @@
 
 <div class="container">
 
+
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-10 col-lg-offset-1">
             {% block content %}
             {% endblock %}
         </div>
