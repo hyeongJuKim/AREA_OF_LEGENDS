@@ -1,0 +1,292 @@
+{%  extends "base.html" %}
+
+{% block content %}
+
+<div class="col-lg-12">
+
+    <div class="list-module">
+        <h1><b>케릭터 정보</b></h1>
+    </div>
+    <br>
+
+
+    <div class="member-div">
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="//ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/Fiddlesticks.png"/>
+                    <div class="member-name">근수스틱</div>
+                    <div class="member-area">마른 휴먼<br>
+                        천동<br>
+                    </div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    <img class="member-skill-img skill-tooltip"
+                         title="수면 여행<br> 일정 피로도가 쌓이게 되면<br> 제어가 불가능해지며 잠에 빠지게 된다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/ChronoShift.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="음식사진 찍기<br> 항상 밥먹기전에 찍어서 누군가에게 보냄."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/KennenLightningRush.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="도박 즐기기 <br>로또복권에 희망을 걸며<br> 언젠가는 당첨될거라 생각한다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/passive/Cardmaster_SealFate.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="낚시 즐기기<br> 가끔씩 쥐도새도 모르게 낚시 갔다옴.<br>항상 갔다온 사진 투척.<br>낚시팟은 상당히 다양하다"
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/NautilusAnchorDrag.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="단결된 의지<br>
+                         모두들 PC방을 간다고 하거나 모일 일 생기면 모든 능력치 상승한다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/ShenR.png">
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="gsChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("gsChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var gsChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "이동속도", "새벽 저항력"],
+                        datasets: [{
+                          label: '근수스틱',
+                          backgroundColor: "rgba(200,255,200,0.5)",
+                          borderColor: "rgba(153,255,51,1)",
+                          data: [5, 5, 5, 10, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+{#        <div class="row bottom_margin col-lg-12">#}
+{#            <strong>스킨</strong>#}
+{#        </div>#}
+
+    </div>
+
+
+    <div class="member-div">
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/Gragas.png"/>
+                    <div class="member-name">일구라가스</div>
+                    <div class="member-area">은둔형 만취 개발자<br>
+                        호동<br>
+                    </div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    <img class="member-skill-img skill-tooltip"
+                         title="전자담배<br>때와 장소를 가리지 않고 시전 할 수 있다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/JinxW.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="개발자 특성상 가끔씩 새벽까지 야근을 하게된다.<br>"
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/passive/Vayne_NightHunter.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="술팟<br> 불금에 막히는 차량들을 제치고 빠르게 참여한다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/GragasE.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="취중분노<br> 술 마신 뒤의 분노는 아무도 막을 수 없다.<br> (술팟 모드가 켜진 상태에서 시전 가능)"
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/GragasW.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="빛나는 법카<br>
+                         법인카드를 사용해 어마어마한 무료 식사가 가능하다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/CardmasterStack.png">
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="ilkChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("ilkChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var ilkChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "이동속도", "먹어먹어"],
+                        datasets: [{
+                          label: '구라가스',
+                          backgroundColor: "rgba(100,100,1,0.5)",
+                          borderColor: "rgba(100,100,1,1)",
+                          data: [8, 5, 5, 10, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+{#        <div class="row bottom_margin col-lg-12">#}
+{#            <strong>스킨</strong>#}
+{#        </div>#}
+
+    </div>
+
+
+    <div class="member-div">
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/Graves.png"/>
+                    <div class="member-name">영구</div>
+                    <div class="member-area">일찍 퇴근자<br>
+                        석교동<br>
+                    </div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title="위너노래 듣기<br>AUX 및 블루투스가 있으면 무조건 듣게 된다.<br> 주변은 공포의 도가니."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/passive/Sona_Passive_Charged.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="술팟<br> 불금에 막히는 차량들을 제치고 빠르게 참여한다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/GragasE.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="ycChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("ycChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var ycChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "채소 흡입", "아이돌 덕력"],
+                        datasets: [{
+                          label: '영구',
+                          backgroundColor: "rgba(100,150,150,0.5)",
+                          borderColor: "rgba(100,150,150,1)",
+                          data: [10, 6, 6, 10, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+{#        <div class="row bottom_margin col-lg-12">#}
+{#            <strong>스킨</strong>#}
+{#        </div>#}
+
+    </div>
+
+
+    <div class="member-div">
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="//ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/Nasus.png"/>
+                    <div class="member-name">지서스</div>
+                    <div class="member-area">채식<br>
+                        원룸<br>
+                    </div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title="신선도 확인<br> 모든 채소 및 과일의 등급을 확인 할 수 있다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/IvernW.png">
+                    <img class="member-skill-img skill-tooltip"
+                         title="<br>"
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title="코스트코 장보기<br>2주에 한번 일구라가스의 도움을 받아<br>코스트코에서 장을 본다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/passive/IvernP.png">
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="jrChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("jrChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var jrChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "이동속도", "채소흡입"],
+                        datasets: [{
+                          label: '지서스',
+                          backgroundColor: "rgba(230,150,150,0.5)",
+                          borderColor: "rgba(230,150,150,1)",
+                          data: [10, 6, 6, 1, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+{#        <div class="row bottom_margin col-lg-12">#}
+{#            <strong>스킨</strong>#}
+{#        </div>#}
+
+    </div>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+    initTooltip();
+
+    function initTooltip(){
+        const el1 = document.querySelector('#myId')
+        tippy('#myId',{
+
+        });
+
+
+        const el = document.querySelector('.skill-tooltip')
+
+        // ToolTip
+        tippy('.skill-tooltip',{
+            position: 'bottom',
+            trigger: 'mouseenter focus',
+            interactive: 'true',
+            animation: 'shift',
+            followCursor: 'true',
+            size: 'big',
+        });
+
+    }
+
+})
+</script>
+{% endblock %}

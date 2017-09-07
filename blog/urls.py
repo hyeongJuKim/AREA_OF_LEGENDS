@@ -24,6 +24,6 @@ urlpatterns = [
 
     url(r'^about$', views.about, name='about'),
 
-    url(r'^post_detail$', views.post_detail, name='post_detail'),
+    url(r'^champion', views.champion, name='champion'),
 
 ]

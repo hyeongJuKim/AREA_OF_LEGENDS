@@ -11,6 +11,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-def post_detail(request):
-    return render(request, 'post_detail.html')
+def champion(request):
+    return render(request, 'champion.html')
 
