@@ -104,17 +104,17 @@ footer {
 }
 
 
-.member_div {}
+.member-div {}
 .member_title {
 	font-size: 20px;
 	font-weight: bold;
 }
 .member_subtitle {}
-.member_member_stat {
+.member-member-stat {
 	width: 100vh;
 	height: 100vh;
 }
-.member_skill_img {
+.member-skill-img {
 	width: 64px;
 	height: 64px;
 	border:1px solid;

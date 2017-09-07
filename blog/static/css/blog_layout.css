@@ -104,21 +104,21 @@ footer {
 }
 
 
-.member_div {
+.member-div {
 	border-bottom: 1px solid #dddddd;
 	padding-top: 23px;
 	padding-bottom: 27px;
 	/*float: left;*/
 }
-.member_name{
+.member-name {
 	font-size: 20px;
 	font-weight: bold;
 }
-.member_area {
+.member-area {
 	/*width:200px;*/
 	float: left;
 }
-.member_profile_img{
+.member-profile-img {
 	vertical-align: top;
 	width: 120px;
 	height: 120px;
@@ -126,14 +126,14 @@ footer {
 	margin-right: 8px;
 	float: left;
 }
-.member_member_stat {
+.member-member-stat {
 	width: 100vh;
 	height: 100vh;
 }
-.member_skill_img {
-	width: 64px;
-	height: 64px;
+.member-skill-img {
+	width: 60px;
+	height: 60px;
 	border:1px solid;
 }
 
-.bottom_margin {margin-bottom: 10px;}
+.bottom_margin {margin-bottom: 15px;}
