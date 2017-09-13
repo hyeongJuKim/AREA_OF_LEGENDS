@@ -10,6 +10,65 @@
     <br>
 
 
+    {% for member in members %}
+    <div class="member-div">
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="{{ member.profile_img }}"/>
+                    <div class="member-name">{{ member.member_name }}</div>
+                    <div class="member-area">{{ member.member_area }}<br>
+                    </div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    <img class="member-skill-img skill-tooltip"
+                         title=""
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title=""
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title=""
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title=""
+                         src="">
+                    <img class="member-skill-img skill-tooltip"
+                         title=""
+                         src="">
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="{{ member.id }}Chart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("{{ member.id }}Chart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var {{ member.id }}Chart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["", "", "", "", ""],
+                        datasets: [{
+                          label: '{{ member.member_name }}',
+                          backgroundColor: "rgba(200,255,200,0.5)",
+                          borderColor: "rgba(153,255,51,1)",
+                          data: [5, 5, 5, 10, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%  endfor %}
+
+
     <div class="member-div">
         <div class="row bottom_margin">
             <div class="col-lg-5">
@@ -161,7 +220,7 @@
                          title="<br>"
                          src="">
                     <img class="member-skill-img skill-tooltip"
-                         title="<br>"
+                         title="노래방에서 아이돌 노래 시전<br>"
                          src="">
                 </div>
             </div>
@@ -211,15 +270,15 @@
                 <div class="row bottom_margin">
                     <div><strong>스킬</strong></div>
                     <img class="member-skill-img skill-tooltip"
-                         title="<br>"
-                         src="">
+                         title="내머릿속에 저.장.<br>아주 사소한 것도 한번 스쳐간 정보는 정확하게 저장된다."
+                         src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/passive/Ryze_P.png">
                     <img class="member-skill-img skill-tooltip"
                          title="<br>"
                          src="">
                     <img class="member-skill-img skill-tooltip"
                          title="신선도 확인<br> 모든 채소 및 과일의 등급을 확인 할 수 있다."
                          src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/IvernW.png">
-                    <img class="member-skill-img skill-tooltip"
+                    <img class="member-skill-img skill-tooltip"`
                          title="<br>"
                          src="">
                     <img class="member-skill-img skill-tooltip"

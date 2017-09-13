@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Member
+
 
 # Create your views here.
 
@@ -12,5 +14,6 @@ def about(request):
 
 
 def champion(request):
-    return render(request, 'champion.html')
+    members = Member.objects.all()
+    return render(request, 'champion.html', {'members': members})
 
