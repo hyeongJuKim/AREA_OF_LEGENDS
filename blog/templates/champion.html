@@ -9,6 +9,14 @@
     </div>
     <br>
 
+    {% for stat in status %}
+        {% for st in stat %}
+            {{ st.status_name }}
+            {{ st.status_no}}
+            <br>
+        {% endfor %}
+    {% endfor %}
+
 
     {% for member in members %}
     <div class="member-div">
@@ -48,7 +56,7 @@
                     ctx.height = 140;
                     ctx.weight = 140;
 
-                    var {{ member.id }}Chart = new Chart(ctx, {
+                    var Chart{{ member.id }} = new Chart(ctx, {
                       type: 'radar',
                       responsive: false,
                       data: {
@@ -68,6 +76,7 @@
     </div>
     {%  endfor %}
 
+<h2> Sample Data...</h2>
 
     <div class="member-div">
         <div class="row bottom_margin">

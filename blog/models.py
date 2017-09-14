@@ -7,14 +7,14 @@ class Member(models.Model):
     member_area = models.CharField(max_length=100)
     profile_img = models.CharField(max_length=200)
 
-    list_display = ('member_name', 'member_area')
-
     def __str__(self):
         return self.member_name
 
 
 class Skill(models.Model):
-    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='skills')
+    member = models.ForeignKey(Member
+                               , related_name='skills'
+                               , on_delete=models.CASCADE)
     skill_no = models.IntegerField()
     skill_name = models.TextField(max_length=1000)
 
@@ -23,7 +23,9 @@ class Skill(models.Model):
 
 
 class Status(models.Model):
-    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='status')
+    member = models.ForeignKey(Member
+                               , related_name='status'
+                               , on_delete=models.CASCADE)
     status_no = models.IntegerField()
     status_name = models.CharField(max_length=30)
     status_point = models.IntegerField()

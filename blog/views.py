@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Member
+from .models import Member, Skill, Status
 
 
 # Create your views here.
@@ -15,5 +15,15 @@ def about(request):
 
 def champion(request):
     members = Member.objects.all()
-    return render(request, 'champion.html', {'members': members})
+
+    skills = []
+    status = []
+
+    for member in members:
+        skills.append(Skill.objects.all().filter(member_id=member.id))
+        status.append(Status.objects.all().filter(member_id=member.id))
+
+    return render(request,
+                  'champion.html',
+                  {'members': members, 'skills': skills, 'status': status})
 
