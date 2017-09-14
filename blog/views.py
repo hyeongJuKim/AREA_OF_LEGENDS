@@ -19,14 +19,12 @@ def champion(request):
     for champ in champions:
         champ_dict = dict()
         champ_dict.update(
-            {'champion_id': champ.id})
+            {'champion': Champion.objects.all().filter(id=champ.id)})
         champ_dict.update(
             {'skill_list': Skill.objects.all().filter(champion_id=champ.id)})
         champ_dict.update(
             {'status_list': Status.objects.all().filter(champion_id=champ.id)})
         show_list.append(champ_dict)
-
-    print(show_list)
 
     return render(request,
                   'champion.html',
