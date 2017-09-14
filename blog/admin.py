@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Member
+from .models import Champion
 from .models import Skill
 from .models import Status
 
 # Register your models here.
 
 
-class MemberAdmin(admin.ModelAdmin):
-    list_display = [f.name for f in Member._meta.fields]
+class ChampionAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Champion._meta.fields]
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class StatusAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Status._meta.fields]
 
 
-admin.site.register(Member, MemberAdmin)
+admin.site.register(Champion, ChampionAdmin)
 
 admin.site.register(Skill, SkillAdmin)
 
