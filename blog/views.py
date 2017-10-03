@@ -6,11 +6,13 @@ from .models import Champion, Skill, Status
 
 
 def main(request):
-    return render(request, 'main.html')
+    if request.method == 'GET':
+        return render(request, 'main.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    if request.method == 'GET':
+        return render(request, 'about.html')
 
 
 def champion(request):
