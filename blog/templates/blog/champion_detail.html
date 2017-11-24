@@ -1,0 +1,86 @@
+{%  extends "base.html" %}
+
+{% block content %}
+
+<div class="col-lg-12">
+
+    <div class="list-module">
+        <h1><b>챔피언 정보</b></h1>
+    </div>
+    <br>
+
+    <div class="member-div" id=""{{ champion.id }}>
+        <div class="row bottom_margin">
+            <div class="col-lg-5">
+                <div class="row bottom_margin">
+                    <img class="member-profile-img" src="{{ champion.profile_img }}"/>
+                    <div class="member-name">{{ champion.name }}</div>
+                    <div class="member-area">{{ champion.area }}</div>
+                </div>
+                <div class="row bottom_margin">
+                    <div><strong>스킬</strong></div>
+                    {% for skill in champion.skills.all|dictsort:"no" %}
+                      <img class="member-skill-img skill-tooltip" title="{{ skill.name|linebreaks }} {{ skill.description }}" src="{{ skill.url }}">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row col-lg-7">
+                <div class="member_stat">
+                    <div><strong>능력치</strong></div>
+                    <canvas id="gsChart"></canvas>
+                    <script>
+                    var ctx = document.getElementById("gsChart");
+                    ctx.height = 140;
+                    ctx.weight = 140;
+
+                    var gsChart = new Chart(ctx, {
+                      type: 'radar',
+                      responsive: false,
+                      data: {
+                        labels: ["지능", "공격력", "체력", "이동속도", "새벽 저항력"],
+                        datasets: [{
+                          label: '근수스틱',
+                          backgroundColor: "rgba(200,255,200,0.5)",
+                          borderColor: "rgba(153,255,51,1)",
+                          data: [5, 5, 5, 10, 10,0]
+                        }]
+                      },
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+    initTooltip();
+
+    function initTooltip(){
+        const el1 = document.querySelector('#myId')
+        tippy('#myId',{
+
+        });
+
+
+        const el = document.querySelector('.skill-tooltip');
+
+        // ToolTip
+        tippy('.skill-tooltip',{
+            position: 'bottom',
+            trigger: 'mouseenter focus',
+            interactive: 'true',
+            animation: 'shift',
+            followCursor: 'true',
+            size: 'big',
+        });
+
+    }
+
+})
+</script>
+{% endblock %}

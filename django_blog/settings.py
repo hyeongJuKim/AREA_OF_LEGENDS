@@ -56,7 +56,7 @@ ROOT_URLCONF = 'django_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')], # TODO: 주석 풀으면 App의 templates 경로를 못찾음.
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # TODO: 주석 풀으면 App의 templates 경로를 못찾음.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

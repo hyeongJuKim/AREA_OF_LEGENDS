@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
+from django.views.generic import ListView
+
 from .models import Champion, Skill, Status
 
 
@@ -31,4 +34,14 @@ def champion(request):
     return render(request,
                   'champion.html',
                   {'champions': champions, 'show_list': show_list})
+
+
+class ChampionLV(ListView):
+    model = Champion
+
+
+class ChampionDV(DetailView):
+    model = Champion
+
+
 
