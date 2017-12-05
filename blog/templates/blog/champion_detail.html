@@ -1,5 +1,7 @@
 {%  extends "base.html" %}
 
+{% block title %} {{ champion.name }} | 동네 OF LEGENDS {% endblock %}
+
 {% block content %}
 
 <div class="col-lg-12">
@@ -10,47 +12,75 @@
     <br>
 
     <div class="member-div" id=""{{ champion.id }}>
+      <div class="">
+
         <div class="row bottom_margin">
-            <div class="col-lg-5">
-                <div class="row bottom_margin">
+            <div class="col-md-5">
+                <div class="member-profile">
                     <img class="member-profile-img" src="{{ champion.profile_img }}"/>
-                    <div class="member-name">{{ champion.name }}</div>
-                    <div class="member-area">{{ champion.area }}</div>
+                    <div class="member-profile-contents">
+                      <div class="member-title">{{ champion.name }}</div>
+                      <div class="member-area">{{ champion.area | linebreaksbr }}</div>
+                      <div class="member-area">{{ champion.profile }}</div>
+                    </div>
                 </div>
-                <div class="row bottom_margin">
-                    <div><strong>스킬</strong></div>
-                    {% for skill in champion.skills.all|dictsort:"no" %}
-                      <img class="member-skill-img skill-tooltip" title="{{ skill.name|linebreaks }} {{ skill.description }}" src="{{ skill.url }}">
-                    {% endfor %}
+                <div class="member_stat">
+                      <div><strong>능력치</strong></div>
+                      <canvas id="statusChart"></canvas>
+                      <script>
+                      var ctx = document.getElementById("statusChart");
+                      ctx.height = 200;
+                      ctx.weight = 140;
+
+                      var statusChart = new Chart(ctx, {
+                        type: 'radar',
+                        responsive: false,
+                        data: {
+                          labels: [{% for status in champion.status.all %} "{{ status.name }}", {% endfor %}],
+                          datasets: [{
+                            label: '{{ champion.name }}',
+                            backgroundColor: "rgba(200,255,200,0.5)",
+                            borderColor: "rgba(153,255,51,1)",
+                            data: [{% for status in champion.status.all %} "{{ status.point|default:0 }}", {% endfor %},]
+                          }]
+                        },
+                      });
+                      </script>
                 </div>
             </div>
-            <div class="row col-lg-7">
-                <div class="member_stat">
-                    <div><strong>능력치</strong></div>
-                    <canvas id="gsChart"></canvas>
-                    <script>
-                    var ctx = document.getElementById("gsChart");
-                    ctx.height = 140;
-                    ctx.weight = 140;
+            <div class="col-md-7">
+              <div class="bottom_margin">
+                <div class="member-title">배경 스토리</div>
+                <p>{{champion.background_story|linebreaksbr }}
+                </p>
+              </div>
+              <div class="bottom_margin">
+                  <div><strong>스킬</strong></div>
+                  {% for skill in champion.skills.all|dictsort:"no" %}
+                    <img class="member-skill-img skill-tooltip" title="{{ skill.name|linebreaks }} {{ skill.description }}" src="{{ skill.url }}">
+                  {% endfor %}
+              </div>
 
-                    var gsChart = new Chart(ctx, {
-                      type: 'radar',
-                      responsive: false,
-                      data: {
-                        labels: ["지능", "공격력", "체력", "이동속도", "새벽 저항력"],
-                        datasets: [{
-                          label: '근수스틱',
-                          backgroundColor: "rgba(200,255,200,0.5)",
-                          borderColor: "rgba(153,255,51,1)",
-                          data: [5, 5, 5, 10, 10,0]
-                        }]
-                      },
-                    });
-                    </script>
-                </div>
             </div>
         </div>
+      </div>
+      <div class="">
+        <div>스킨</div>
+        <div>
+          <div style="float: left; width: 33.3%;">
+            <img style="max-width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiddlesticks_6.jpg">
+          </div>
+          <div style="float: left; width: 33.3%;">
+            <img style="max-width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiddlesticks_3.jpg">
+          </div>
+          <div style="float: left; width: 33.3%;">
+            <img style="max-width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiddlesticks_7.jpg">
+          </div>
+        </div>
+
+      </div>
     </div>
+
 
 </div>
 
@@ -61,12 +91,6 @@ $(document).ready(function() {
     initTooltip();
 
     function initTooltip(){
-        const el1 = document.querySelector('#myId')
-        tippy('#myId',{
-
-        });
-
-
         const el = document.querySelector('.skill-tooltip');
 
         // ToolTip
@@ -74,7 +98,8 @@ $(document).ready(function() {
             position: 'bottom',
             trigger: 'mouseenter focus',
             interactive: 'true',
-            animation: 'shift',
+            animation: 'fade',
+            duration: 100,
             followCursor: 'true',
             size: 'big',
         });

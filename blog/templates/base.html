@@ -26,15 +26,12 @@
     <link rel="stylesheet" href="https://unpkg.com/tippy.js/dist/tippy.css">
     <script src="https://unpkg.com/tippy.js/dist/tippy.min.js"></script>
 
-
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'css/blog_layout.css' %}">
-
 {#	<link rel="stylesheet" href="/static/css/blog_layout.css">#}
-
 {#	<link rel="stylesheet" href="static/css/blog_layout.css">#}
 
-    <title>동네 OF LEGENDS</title>
+    <title>{% block title %} 동네 OF LEGENDS {% endblock %}</title>
 </head>
 <body>
 
@@ -54,8 +51,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-{#                    <li> <a href="about">시온팸?</a> </li>#}
-                    <li> <a href="champion">Champion</a> </li>
+                    <li> <a href="{% url 'champion_list' %}">Champion</a> </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -65,7 +61,6 @@
 
 
 <div class="container">
-
 
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">

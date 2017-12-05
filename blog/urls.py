@@ -18,6 +18,7 @@ from django.views.generic import DetailView
 from django.views.generic import ListView
 
 from blog.models import Champion
+from blog.views import ChampionLV, ChampionDV
 from . import views
 
 
@@ -28,7 +29,7 @@ urlpatterns = [
     url(r'^champion/', views.champion, name='champion'),
 
     # vies.py없이 간단히 만들수도 있다.
-    url(r'^champions/$', ListView.as_view(model=Champion), name='champion_list'),
-    url(r'^champions/(?P<pk>\d+)/$', DetailView.as_view(model=Champion), name='champion_detail'),
+    url(r'^champions/$', ChampionLV.as_view(), name='champion_list'),
+    url(r'^champions/(?P<pk>\d+)/$', ChampionDV.as_view(), name='champion_detail'),
 
 ]

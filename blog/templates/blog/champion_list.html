@@ -1,5 +1,7 @@
 {%  extends "base.html" %}
 
+{% block title %} 챔피언 | 동네 OF LEGENDS {% endblock %}
+
 {% block content %}
 
 <div class="col-lg-12">
@@ -8,7 +10,7 @@
       <h1><b>챔피언 목록</b></h1>
   </div>
 
-  {% for champion in champion_list %}
+  {% for champion in champions %}
   <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="member-div">
       <a href="{% url 'champion_detail' champion.id %}">
@@ -16,10 +18,26 @@
       </a>
       <div class="member-name">{{ champion.name }}</div>
       <div class="member-area">{{ champion.area }}</div>
-      <div class="member-area"></div>
+      <div class="member-area">{{ champion.profile }}</div>
     </div>
   </div>
   {% endfor %}
+{#  <!-- 페이징 -->#}
+{#  <div>#}
+{#    <span>#}
+{#      {% if page_obj.has_previous %}#}
+{#        <a href="?page=1"><button> 제일 처음</button></a>#}
+{#        <a href="?page={{ page_obj.previous_page_number }}"><button>이전</button></a>#}
+{#      {% endif %}#}
+{##}
+{#      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}#}
+{##}
+{#      {% if page_obj.has_next %}#}
+{#        <a href="?page={{ page_obj.next_page_number }}"><button>다음</button></a>#}
+{#        <a href="?page={{ page_obj.paginator.num_pages }}"><button>마지막</button></a>#}
+{#      {% endif %}#}
+{#    </span>#}
+{#  </div>#}
 
 </div>
 

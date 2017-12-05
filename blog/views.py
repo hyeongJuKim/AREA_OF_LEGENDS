@@ -38,6 +38,9 @@ def champion(request):
 
 class ChampionLV(ListView):
     model = Champion
+    template_name = 'champion_list.html'
+    context_object_name = 'champions'
+    # paginate_by = 1  # 페이징
 
 
 class ChampionDV(DetailView):

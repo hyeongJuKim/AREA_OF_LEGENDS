@@ -8,18 +8,25 @@ from .models import Status
 
 class ChampionAdmin(admin.ModelAdmin):
     list_display = [f.name for f in Champion._meta.fields]
-
-
-class SkillAdmin(admin.ModelAdmin):
-    list_display = [f.name for f in Skill._meta.fields]
-
-
-class StatusAdmin(admin.ModelAdmin):
-    list_display = [f.name for f in Status._meta.fields]
+    search_fields = ('name',)
+    list_filter = ('name',)
+    # prepopulated_fields = {'area': ('name',)}
 
 
 admin.site.register(Champion, ChampionAdmin)
 
+
+class SkillAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Skill._meta.fields]
+    search_fields = ('name',)
+
 admin.site.register(Skill, SkillAdmin)
 
+
+class StatusAdmin(admin.ModelAdmin):
+    list_display = [f.name for f in Status._meta.fields]
+    search_fields = ('name',)
+
 admin.site.register(Status, StatusAdmin)
+
+
