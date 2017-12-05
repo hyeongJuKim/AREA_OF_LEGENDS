@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="">
-        <div>스킨</div>
+        <div class="member-title">스킨</div>
         <div>
           <div style="float: left; width: 33.3%;">
             <img style="max-width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiddlesticks_6.jpg">
@@ -96,12 +96,11 @@ $(document).ready(function() {
         // ToolTip
         tippy('.skill-tooltip',{
             position: 'bottom',
-            trigger: 'mouseenter focus',
+            trigger: 'mouseenter',
             interactive: 'true',
             animation: 'fade',
             duration: 100,
-            followCursor: 'true',
-            size: 'big',
+            size: 'big'
         });
 
     }
